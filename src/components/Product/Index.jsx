@@ -1,8 +1,8 @@
 import React from "react";
 import { Container, Circle, Image, Info, Icon } from "./styles";
-import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
-import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
-
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
+import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
 
 const Product = ({ item }) => {
   return (
@@ -11,10 +11,14 @@ const Product = ({ item }) => {
       <Image src={item.img} />
       <Info>
         <Icon>
-            <ShoppingCartOutlinedIcon/>
+          <ShoppingCartOutlinedIcon />
         </Icon>
         <Icon>
-            <SearchOutlinedIcon/>
+          <SearchOutlinedIcon />
+        </Icon>
+
+        <Icon>
+          <FavoriteBorderOutlinedIcon />
         </Icon>
       </Info>
     </Container>
