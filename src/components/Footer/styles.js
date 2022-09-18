@@ -26,7 +26,7 @@ export const Desc = styled.p`
 `;
 
 export const SocialContainer = styled.div`
-  display: flex;
+   display: flex; 
 `;
 
 export const SocialIcons = styled.div`
