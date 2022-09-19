@@ -1,4 +1,6 @@
 import React from "react";
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
+import RemoveOutlinedIcon from '@mui/icons-material/RemoveOutlined';
 import {
   Container,
   Wrapper,
@@ -12,6 +14,12 @@ import {
   Filter,
   FilterTitle,
   FilterColor,
+  FilterSize,
+  FilterSizeOption,
+  AddContainer,
+AmountContainer,
+Amount,
+Button
 } from "./styles";
 import Navbar from "../../components/Navbar/Index";
 import NewsLetter from "../../components/NewsLetter/Index";
@@ -37,10 +45,31 @@ const Product = () => {
           <Price>$20</Price>
           <FilterContainer>
             <Filter>
-              <FilterTitle></FilterTitle>
-              <FilterColor></FilterColor>
+              <FilterTitle>Color</FilterTitle>
+              <FilterColor color="black" />
+              <FilterColor color="darkblue" />
+              <FilterColor color="gray" />
+            </Filter>
+
+            <Filter>
+              <FilterTitle>Size</FilterTitle>
+              <FilterSize>
+                <FilterSizeOption>XS</FilterSizeOption>
+                <FilterSizeOption>S</FilterSizeOption>
+                <FilterSizeOption>M</FilterSizeOption>
+                <FilterSizeOption>L</FilterSizeOption>
+                <FilterSizeOption>XL</FilterSizeOption>
+              </FilterSize>
             </Filter>
           </FilterContainer>
+          <AddContainer>
+            <AmountContainer>
+               <RemoveOutlinedIcon/> 
+              <Amount>1</Amount>
+              <AddOutlinedIcon/>
+            </AmountContainer>
+            <Button>ADD TO CART</Button>
+          </AddContainer>
         </InfoContainer>
       </Wrapper>
       <NewsLetter />

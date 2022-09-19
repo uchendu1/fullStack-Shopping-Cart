@@ -1,15 +1,19 @@
 import './App.css';
 // import Home from './pages/Home';
-import ProductList from './pages/ProductList/Index';
-import Product from './pages/Product/Index';
+// import ProductList from './pages/ProductList/Index';
+// import Product from './pages/Product/Index';
+// import Register from './pages/Register/Index';
+import Login from "./pages/Login/Index"
 
 function App() {
   return (
-    <div >
+    < >
       {/* <Home/> */}
-      <ProductList/>
-      <Product/>
-    </div>
+      {/* <ProductList/> */}
+      {/* <Product/> */}
+      {/* <Register/> */}
+      <Login/>
+    </>
   );
 }
 
