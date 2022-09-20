@@ -66,9 +66,9 @@ export const ProductColor = styled.div`
 
 `;
 
-// export const Product = styled.div`
+export const ProductSize = styled.div`
 
-// `;
+`;
 
 
 export const Summary = styled.div`
