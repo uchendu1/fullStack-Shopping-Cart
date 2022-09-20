@@ -16,7 +16,7 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  width: 40%;
+  width: 25%;
   padding: 20px;
   background-color: white ;
   
@@ -29,7 +29,7 @@ font-weight: 300;
 
 export const Form = styled.form`
 display: flex;
-flex-wrap: wrap;
+flex-direction: column;
 `;
 
 export const Input = styled.input`
@@ -51,10 +51,14 @@ padding: 15px 20px;
 background-color: teal ;
 color: white;
 cursor: pointer;
+margin: 10px 0px ;
 
 
 `;
 
 export const Link = styled.a`
-
+margin: 5px 0px;
+font-size: 12px;
+text-decoration: underline;
+cursor: pointer;
 `;
