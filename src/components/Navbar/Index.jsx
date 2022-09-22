@@ -22,7 +22,7 @@ const Navbar = () => {
         <Left>
           <Language>EN</Language>
           <SearchContainer>
-            <Input />
+            <Input placeholder="Search" />
             <SearchOutlinedIcon  style={{color: "gray", fontSize: 16 }}/>
           </SearchContainer>
         </Left>

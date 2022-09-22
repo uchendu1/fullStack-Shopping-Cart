@@ -1,10 +1,13 @@
 import styled from "styled-components";
+import {mobile} from "../../responsive";
 
 export const Container = styled.div``;
 
 export const Wrapper = styled.div`
   padding: 50px;
   display: flex;
+  ${mobile({padding: "10px", flexDirection: "column"})}
+
 `;
 
 export const ImgContainer = styled.div`
@@ -15,11 +18,15 @@ export const Image = styled.img`
   width: 100%;
   height: 90vh;
   object-fit: cover;
+  ${mobile({height: "40vh"})}
+
 `;
 
 export const InfoContainer = styled.div`
   flex: 1;
   padding: 0px 50px;
+  ${mobile({padding: "10px"})}
+
 `;
 
 export const Title = styled.h1`
@@ -39,6 +46,8 @@ export const FilterContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 30px 0px;
+  ${mobile({width: "100%"})}
+
 `;
 
 export const Filter = styled.div`
@@ -73,6 +82,8 @@ align-items: center ;
 width: 50%; 
 justify-content: space-between;
 font-weight: 700;
+${mobile({width: "100%"})}
+
 `;
 
 export const AmountContainer = styled.div`

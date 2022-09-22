@@ -26,7 +26,7 @@ import NewsLetter from "../../components/NewsLetter/Index";
 import Announcements from "../../components/Annoucements/Index";
 import Footer from "../../components/Footer/Index";
 
-const Product = () => {
+const  Product = () => {
   return (
     <Container>
       <Navbar />
