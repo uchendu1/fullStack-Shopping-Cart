@@ -1,4 +1,4 @@
-import React from "react";
+import {useState} from "react";
 import { useLocation } from 'react-router-dom'
 
 import {
@@ -18,7 +18,17 @@ import Footer from "../../components/Footer/Index";
 
 const ProductList = () => {
   const location = useLocation();
-  console.log(location)
+ const cat = location.pathname.split("/")[2]
+ const [filter, setFilter] = useState({});
+
+ const handleFilters = (e) => {
+  const value = e.target.value;
+  setFilter({
+    ...filter,
+    [e.target.name]: value,
+  });
+ };
+ console.log(filter)
   return (
     <Container>
       <Navbar />
@@ -27,8 +37,8 @@ const ProductList = () => {
       <FilterContainer>
         <Filter>
           <FilterText>Filter Products:</FilterText>
-          <Select>
-            <Option disabled selected>
+          <Select name="color" onChange={handleFilters}>
+            <Option disabled >
               Color
             </Option>
             <Option>White</Option>
@@ -39,8 +49,8 @@ const ProductList = () => {
             <Option>Green</Option>
           </Select>
 
-          <Select>
-            <Option disabled selected>
+          <Select name="size" onChange={handleFilters}>
+            <Option disabled  >
               Size
             </Option>
             <Option>XS</Option>
@@ -53,7 +63,7 @@ const ProductList = () => {
         <Filter>
           <FilterText>Sort Products:</FilterText>
           <Select>
-            <Option selected>Newest</Option>
+            <Option  >Newest</Option>
             <Option>price(asc)</Option>
             <Option>price(desc)</Option>
           </Select>
