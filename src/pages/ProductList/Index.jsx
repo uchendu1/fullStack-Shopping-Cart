@@ -1,4 +1,6 @@
 import React from "react";
+import { useLocation } from 'react-router-dom'
+
 import {
   Container,
   Title,
@@ -15,6 +17,8 @@ import NewsLetter from "../../components/NewsLetter/Index";
 import Footer from "../../components/Footer/Index";
 
 const ProductList = () => {
+  const location = useLocation();
+  console.log(location)
   return (
     <Container>
       <Navbar />
