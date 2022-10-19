@@ -1,4 +1,5 @@
-import React from "react";
+import {useEffect, useState} from "react";
+import { useLocation } from "react-router-dom";
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import RemoveOutlinedIcon from '@mui/icons-material/RemoveOutlined';
 import {
@@ -25,15 +26,30 @@ import Navbar from "../../components/Navbar/Index";
 import NewsLetter from "../../components/NewsLetter/Index";
 import Announcements from "../../components/Annoucements/Index";
 import Footer from "../../components/Footer/Index";
+import {publicRequest} from "../../requestMethods"
 
 const  Product = () => {
+  const location = useLocation();
+  const id = location.pathname.split("/")[2];
+  const [product, setProduct] = useState({});
+
+  useEffect(() => {
+    const getProduct = async () => {
+      try {
+        const res = await publicRequest.get("/products/find/" + id);
+        setProduct(res.data);
+      } catch {}
+    };
+    getProduct();
+  }, [id]);
+
   return (
     <Container>
       <Navbar />
       <Announcements />
       <Wrapper>
         <ImgContainer>
-          <Image src="https://i.ibb.co/S6qMxwr/jean.jpg" />
+          <Image src={product.img} />
         </ImgContainer>
         <InfoContainer>
           <Title>Denim Jumpsuit</Title>

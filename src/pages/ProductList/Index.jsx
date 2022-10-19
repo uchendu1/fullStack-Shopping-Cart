@@ -34,7 +34,7 @@ const ProductList = () => {
     <Container>
       <Navbar />
       <Announcements />
-      <Title>Dresses</Title>
+      <Title>{cat}</Title>
       <FilterContainer>
         <Filter>
           <FilterText>Filter Products:</FilterText>
@@ -44,9 +44,9 @@ const ProductList = () => {
             </Option>
             <Option>white</Option>
             <Option>black</Option>
-            <Option>red</Option>
-            <Option>blue</Option>
-            <Option>yellow</Option>
+            <Option>milky</Option>
+            <Option>brown</Option>
+            <Option>pink</Option>
             <Option>green</Option>
           </Select>
 
