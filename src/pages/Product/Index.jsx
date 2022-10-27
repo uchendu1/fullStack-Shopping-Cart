@@ -1,7 +1,7 @@
-import {useEffect, useState} from "react";
-import { useLocation } from "react-router-dom";
-import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
-import RemoveOutlinedIcon from '@mui/icons-material/RemoveOutlined';
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom"; 
+import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
+import RemoveOutlinedIcon from "@mui/icons-material/RemoveOutlined";
 import {
   Container,
   Wrapper,
@@ -18,25 +18,26 @@ import {
   FilterSize,
   FilterSizeOption,
   AddContainer,
-AmountContainer,
-Amount,
-Button
+  AmountContainer,
+  Amount,
+  Button,
 } from "./styles";
 import Navbar from "../../components/Navbar/Index";
 import NewsLetter from "../../components/NewsLetter/Index";
 import Announcements from "../../components/Annoucements/Index";
 import Footer from "../../components/Footer/Index";
-import {publicRequest} from "../../requestMethods"
+import { publicRequest, BASE_URL } from "../../requestMethods";
 
-const  Product = () => {
+const Product = () => {
   const location = useLocation();
   const id = location.pathname.split("/")[2];
   const [product, setProduct] = useState({});
 
+
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const res = await publicRequest.get("/products/find/" + id);
+        const res = await publicRequest.get(BASE_URL + "/products/find/" + id)
         setProduct(res.data);
       } catch {}
     };
@@ -49,40 +50,45 @@ const  Product = () => {
       <Announcements />
       <Wrapper>
         <ImgContainer>
-          <Image src={product.img} />
+          <Image src={product.img || "https://i.ibb.co/DG69bQ4/2.png"} />
         </ImgContainer>
         <InfoContainer>
-          <Title>Denim Jumpsuit</Title>
+          <Title>{product.title || "Denim Jeans"}</Title>
           <Desc>
-            ed ut perspiciatis unde omnis iste natus error sit voluptatem
-            accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-            quae ab i
+            {product.desc ||
+              "ed ut perspiciatis unde omnis iste natus error sit voluptatemaccusantium doloremque laudantium, totam rem aperiam, eaque ipsa"}
           </Desc>
-          <Price>$20</Price>
+          <Price>${product.price || "$20"}</Price>
           <FilterContainer>
             <Filter>
-              <FilterTitle>Color</FilterTitle>
-              <FilterColor color="black" />
+               <FilterTitle>Color</FilterTitle>
+               {product.color?.map((c) => (
+              <FilterColor color={c} key={c} />
+              ))}  
+               {/* <FilterColor color="black" />
               <FilterColor color="darkblue" />
-              <FilterColor color="gray" />
+              <FilterColor color="gray" />  */}
             </Filter>
 
             <Filter>
               <FilterTitle>Size</FilterTitle>
               <FilterSize>
-                <FilterSizeOption>XS</FilterSizeOption>
+                {product.size?.map((s) => (
+              <FilterSizeOption key={s}>{s}</FilterSizeOption>
+              ))}  
+                {/* <FilterSizeOption>XS</FilterSizeOption>
                 <FilterSizeOption>S</FilterSizeOption>
                 <FilterSizeOption>M</FilterSizeOption>
                 <FilterSizeOption>L</FilterSizeOption>
-                <FilterSizeOption>XL</FilterSizeOption>
-              </FilterSize>
+                <FilterSizeOption>XL</FilterSizeOption> */}
+              </FilterSize> 
             </Filter>
           </FilterContainer>
           <AddContainer>
             <AmountContainer>
-               <RemoveOutlinedIcon/> 
+              <RemoveOutlinedIcon />
               <Amount>1</Amount>
-              <AddOutlinedIcon/>
+              <AddOutlinedIcon />
             </AmountContainer>
             <Button>ADD TO CART</Button>
           </AddContainer>

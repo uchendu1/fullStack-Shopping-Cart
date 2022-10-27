@@ -6,6 +6,7 @@ export const Container = styled.div``;
 export const Wrapper = styled.div`
   padding: 50px;
   display: flex;
+  background-color: gray;
   ${mobile({padding: "10px", flexDirection: "column"})}
 
 `;
