@@ -57,7 +57,7 @@ const Product = () => {
     };
     getProduct();
   }, [id]);
-console.log(product, "=======product=======")
+// console.log(product, "=======product=======")
   const handleAddToCartClick = () => {
     dispatch(
       addProduct({...product, quantity, color, size })

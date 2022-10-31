@@ -3,9 +3,11 @@ import StripeCheckout from "react-stripe-checkout";
 import RemoveOutlinedIcon from "@mui/icons-material/RemoveOutlined";
 import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 import { useSelector } from "react-redux";
-import {useHistory} from "react-router-dom"
+//import Axios from "axios";
+
+import {useNavigate} from "react-router-dom"
 import Footer from "../../components/Footer/Index";
-import {userRequest} from "../../requestMethods";
+import {userRequest, BASE_URL } from "../../requestMethods";
 import {
   Container,
   Wrapper,
@@ -39,12 +41,13 @@ import {
 import Navbar from "../../components/Navbar/Index";
 import Announcements from "../../components/Annoucements/Index";
 
-const KEY = process.env.PUBLISHABLE_STRIPE_KEY;
+const KEY = process.env.REACT_APP_STRIPE;
+
 const Cart = () => {
 
   const cart = useSelector((state) => state.cart);
   const [stripeToken, setStripeToken] = useState(null);
-  const history = useHistory()
+  const navigate = useNavigate()
   console.log(stripeToken, "=======stripeToken======");
 
   const onToken = (token) => {
@@ -53,21 +56,25 @@ const Cart = () => {
 
 
 
+ 
   useEffect(() => {
     const makeRequest = async () => {
       try {
-        const res = await userRequest("/checkout/payment", {
-          tokenId: stripeToken,
-          amount: cart.total * 100,
+        const res = await userRequest.post(BASE_URL + "/checkout/payment", {
+          tokenId: stripeToken.id,
+          // amount: cart.total * 100,
+          amout: 500,
         });
-        history.push("/success", {
+        navigate.push("/success", {
           stripeData: res.data,
          });
       } catch {}
     };
-     makeRequest();
-  }, [stripeToken, cart.total, history]);
-  return (
+    stripeToken && makeRequest();
+  }, [stripeToken, cart.total, navigate]);
+
+
+ return (
     <Container>
       <Navbar />
       <Announcements />
@@ -79,7 +86,6 @@ const Cart = () => {
             <TopText>Shopping Bags(2)</TopText>
             <TopText>Your WishList(0)</TopText>
           </TopTexts>
-          <TopButton type="filled">CHECKOUT NOW</TopButton>
         </Top>
         <Bottom>
           <Info>
@@ -115,6 +121,8 @@ const Cart = () => {
                 </PriceDetail>
               </Product>
             ))}
+
+
           </Info>
           <Summary>
             <SummaryTitle>ORDER SUMMARY</SummaryTitle>

@@ -12,13 +12,16 @@ import Product from "./pages/Product/Index";
 import Register from "./pages/Register/Index";
 import Login from "./pages/Login/Index";
 import Cart from "./pages/Cart/Index";
-function App() {
-  const user = true;
+import Success from "./pages/Success";
+ function App() { 
+  const user = false;
   return (
     <Router>
       <Routes>
         <Route path="/" exact element={<Home />} />
         <Route path="/product/:id" element={<Product />} />
+        <Route path="/success" element={<Success />} />
+
         <Route path="/products/:category" element={<ProductList />} />
         <Route
           path="/register"
