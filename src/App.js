@@ -6,6 +6,8 @@ import {
   Navigate,
 } from "react-router-dom";
 
+import {useSelector} from "react-redux";
+
 import Home from "./pages/Home";
 import ProductList from "./pages/ProductList/Index";
 import Product from "./pages/Product/Index";
@@ -14,7 +16,11 @@ import Login from "./pages/Login/Index";
 import Cart from "./pages/Cart/Index";
 import Success from "./pages/Success";
  function App() { 
-  const user = false;
+  const user = useSelector(state => state.user.currentUser);
+  //navigates to the home page when there's a user
+
+
+
   return (
     <Router>
       <Routes>

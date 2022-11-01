@@ -55,6 +55,10 @@ background-color: teal ;
 color: white;
 cursor: pointer;
 margin: 10px 0px ;
+&:disabled{
+  color: green;
+  cursor: not-allowed;
+}
 
 
 `;
@@ -65,3 +69,10 @@ font-size: 12px;
 text-decoration: underline;
 cursor: pointer;
 `;
+
+
+export const Error = styled.span`
+color: red;
+
+`
+;
