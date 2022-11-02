@@ -14,7 +14,6 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-const rootReducer = combineReducers({ user: userReducer, cart: cartReducer });
 
 
 const persistConfig = {
@@ -22,19 +21,25 @@ const persistConfig = {
   version: 1,
   storage,
 };
+const rootReducer = combineReducers({ user: userReducer, cart: cartReducer });
 
-const persistedReducer = persistReducer(persistConfig, userReducer);
+const persistedReducer = persistReducer(persistConfig, rootReducer);
 
-export const store = () =>
-  configureStore({
-    reducer: {
+// export  const store = () =>
+//   configureStore({
+//     reducer: persistedReducer,
+  
+//     middleware: (getDefaultMiddleware) =>
+//       getDefaultMiddleware({
+//         serializableCheck: {
+//           ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+//         },
+//       }),
+//   });
 
-      
-       cart: cartReducer,
-       user: persistReducer,
-      },
-    
 
+  export const store = configureStore({
+    reducer: persistedReducer,
     middleware: (getDefaultMiddleware) =>
       getDefaultMiddleware({
         serializableCheck: {
@@ -42,4 +47,6 @@ export const store = () =>
         },
       }),
   });
-export let persistor = persistStore(store);
+  
+  export const persistor = persistStore(store);
+
