@@ -15,6 +15,9 @@ import Register from "./pages/Register/Index";
 import Login from "./pages/Login/Index";
 import Cart from "./pages/Cart/Index";
 import Success from "./pages/Success";
+
+
+
  function App() { 
   const user = useSelector(state => state.user.currentUser);
   //navigates to the home page when there's a user
@@ -34,9 +37,11 @@ import Success from "./pages/Success";
           element={user ? <Navigate to="/" /> : <Register />}
         />
 
-        <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} />
+        {/* <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} /> */}
 
         <Route path="/cart" element={<Cart />} />
+        <Route path="/login" element={<Login />} />
+
       </Routes>
     </Router>
   );
