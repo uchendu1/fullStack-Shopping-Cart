@@ -6,6 +6,7 @@ export const Container = styled.div``;
 export const Wrapper = styled.div`
   padding: 20px;
   text-align: center;
+
   ${mobile({padding: "10px"})}
 
 `;
@@ -16,7 +17,7 @@ export const Title = styled.h1`
 
 export const Top = styled.div`
   display: flex;
-  align-items: center;
+  align-items: center; 
   justify-content: space-between;
   padding: 20px;
 `;

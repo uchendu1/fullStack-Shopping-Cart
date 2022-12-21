@@ -40,7 +40,6 @@ import Success from "./pages/Success";
         <Route path="/login" element={user ? <Navigate to="/" /> : <Login />} /> 
 
         <Route path="/cart" element={<Cart />} />
-        {/* <Route path="/login" element={<Login />} /> */}
 
       </Routes>
     </Router>

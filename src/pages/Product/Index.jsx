@@ -52,16 +52,16 @@ const Product = () => {
       try {
         const res = await publicRequest.get(BASE_URL + "/products/find/" + id);
         setProduct(res.data);
-
       } catch {}
     };
     getProduct();
   }, [id]);
-// console.log(product, "=======product=======")
-  const handleAddToCartClick = () => {
-    dispatch(
-      addProduct({...product, quantity, color, size })
-    );
+
+  console.log(product, "=======product=======");
+
+
+  const handleAddToCartClick = () => { 
+    dispatch(addProduct({ ...product, quantity, color, size }));
   };
 
   return (
@@ -85,7 +85,6 @@ const Product = () => {
               {product.color?.map((c) => (
                 <FilterColor color={c} key={c} onClick={() => setColor(c)} />
               ))}
-              
             </Filter>
 
             <Filter>
