@@ -92,7 +92,7 @@ const Cart = () => {
             <Hr />
 
             {cart.products.map((product) => (
-              <Product>
+              <Product> 
                 <ProductDetail>
                   <Image src={product.img} />
                   <Details>
