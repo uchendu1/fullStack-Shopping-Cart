@@ -49,6 +49,7 @@ export const ImgContainer = styled.div`
 flex: 1;
 height: 100%;
 
+
 `
 // https://i.ibb.co/XsdmR2c/1.png
 export const Image = styled.img`
